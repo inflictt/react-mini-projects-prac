@@ -61,9 +61,16 @@ export default function App() {
             />
 
             <button 
+            type="button"
             onClick={copyPassToClp}
             className="bg-black hover:bg-blue-300 text-white h-10 w-14 rounded-sm cursor-pointer">
               Copy
+            </button>
+            <button 
+            type="button"
+            onClick={genPass}
+            className="bg-black hover:bg-blue-300 text-white h-14 w-25 rounded-sm cursor-pointer">
+              New Password
             </button>
           </form>
         </div>
