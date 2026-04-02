@@ -38,6 +38,7 @@ export default function App() {
   },[passLen, numAllowed, charAllowed, setPassword,genPass])
 
   let copyPassToClp = useCallback(()=>{
+    copyPass.current?.select()
     window.navigator.clipboard.writeText(password)
   },[password])
 
