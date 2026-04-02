@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react";
-
+import React, { useCallback, useEffect, useRef, useState } from "react";
 export default function App() {
   // making passlength first using the use state
   let [passLen, setPassLen] = useState(8); // by def as 8
   let [numAllowed, setNumAllowed] = useState(false); // by def as false
   let [charAllowed, setCharAllowed] = useState(false); // by def as false
+  let copyPass = useRef(null)
   let [password, setPassword] = useState(""); // by def as nothing
 
   // now using usecallback to store and gen pass
@@ -15,7 +15,6 @@ export default function App() {
     let passBuilder = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     let nums = "0123456789";
     let specChars = "!@#$%^&*()_";
-
     if (numAllowed) {
       passBuilder += nums;
     }
@@ -37,6 +36,11 @@ export default function App() {
   useEffect(()=>{
     genPass()
   },[passLen, numAllowed, charAllowed, setPassword,genPass])
+
+  let copyPassToClp = useCallback(()=>{
+    window.navigator.clipboard.writeText(password)
+  },[password])
+
   return (
     <div className="w-screen h-screen bg-gray-900 p-8">
       <div className="flex justify-center bg-gray-100 text-2xl p-4">
@@ -47,6 +51,7 @@ export default function App() {
         <div className="p-5">
           <form className="flex flex-row justify-center items-center space-x-3">
             <input
+            ref={copyPass}
               type="text"
               className="h-8 text-left rounded-md bg-gray-400 pl-3 w-2/3"
               value={password}
@@ -54,7 +59,9 @@ export default function App() {
               placeholder="Password"
             />
 
-            <button className="bg-black hover:bg-blue-300 text-white h-10 w-14 rounded-sm cursor-pointer">
+            <button 
+            onClick={copyPassToClp}
+            className="bg-black hover:bg-blue-300 text-white h-10 w-14 rounded-sm cursor-pointer">
               Copy
             </button>
           </form>
