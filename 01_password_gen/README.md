@@ -1,16 +1,96 @@
-# React + Vite
+# 🔐 Password Generator App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and responsive **Password Generator App** built with **React + Vite + Tailwind CSS**.
 
-Currently, two official plugins are available:
+This project allows users to generate secure random passwords with customizable options like password length, numbers, and special characters.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* ✅ Generate random secure passwords
+* ✅ Adjustable password length
+* ✅ Toggle numbers
+* ✅ Toggle special characters
+* ✅ Instant password regeneration
+* ✅ Clean responsive UI
+* ✅ Built with React Hooks
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+* **React**
+* **Vite**
+* **Tailwind CSS**
+* **JavaScript (ES6+)**
+
+---
+
+## 📂 Folder Structure
+
+```bash
+01_password_gen/
+ ┣ public/
+ ┣ src/
+ ┃ ┣ App.jsx
+ ┃ ┣ App.css
+ ┃ ┣ main.jsx
+ ┃ ┗ index.css
+ ┣ package.json
+ ┣ vite.config.js
+ ┗ README.md
+```
+
+---
+
+## 📸 Preview
+
+Password Generator with:
+
+* dynamic length slider
+* number toggle
+* special character toggle
+* clean modern UI
+
+---
+
+## ▶️ Run Locally
+
+```bash
+git clone <your-repo-url>
+cd 01_password_gen
+npm install
+npm run dev
+```
+
+---
+
+## 🎯 Learning Outcome
+
+This project helped me practice:
+
+* React `useState`
+* React `useEffect`
+* React `useCallback`
+* Controlled form inputs
+* Tailwind flexbox layout
+* GitHub project structuring
+* Mini project portfolio workflow
+
+---
+
+## 🌟 Future Improvements
+
+* 📋 Copy to clipboard button
+* 🔤 Lowercase letter toggle
+* 📊 Password strength meter
+* 🌙 Dark/light mode
+* 📱 Better mobile responsiveness
+
+---
+
+## 👨‍💻 Author
+
+**Saksham Lodha**
+Building mini projects daily to improve React and frontend development skills 🚀
