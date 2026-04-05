@@ -1,16 +1,51 @@
-# React + Vite
+# 💱 Currency Converter
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A sleek and modern **React Currency Converter App** built with **Vite, React Hooks, reusable components, and live exchange rates API**.
 
-Currently, two official plugins are available:
+This mini project converts currencies in real time using latest exchange rates and supports swapping between currencies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🌍 Live currency conversion using API
+- 🔄 Swap currencies instantly
+- 📥 Reusable InputBox component
+- ⚛️ React Hooks (`useState`, `useEffect`)
+- 🧩 Custom Hook (`useCurrencyInfo`)
+- 🎨 Clean glassmorphism UI
+- 📱 Responsive design
+- 🚫 Disabled output amount field
+- 🔁 Dynamic currency dropdowns
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- **React**
+- **Vite**
+- **Tailwind CSS**
+- **Custom Hooks**
+- **Currency API**
+- **JavaScript (ES6+)**
+
+---
+
+## 📂 Project Structure
+
+```bash
+02_currency_project
+├── public
+├── src
+│   ├── Components
+│   │   ├── InputBox.jsx
+│   │   ├── CurrencyBox1.jsx
+│   │   ├── CurrencyBox2.jsx
+│   │   └── ConvertBtn.jsx
+│   ├── hooks
+│   │   └── useCurrencyInfo.js
+│   ├── App.jsx
+│   ├── MainBox.jsx
+│   └── main.jsx
+├── package.json
+└── vite.config.js
