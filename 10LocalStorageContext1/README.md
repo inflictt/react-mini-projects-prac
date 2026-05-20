@@ -2,7 +2,7 @@
 
 A fully functional Todo Application built using React.js, Context API, Local Storage, and Tailwind CSS.
 
-This project demonstrates global state management using Context API along with persistent storage using browser localStorage.
+This project demonstrates global state management using Context API along with persistent browser storage using localStorage.
 
 ---
 
@@ -12,10 +12,10 @@ This project demonstrates global state management using Context API along with p
 * Edit Todos
 * Delete Todos
 * Mark Todos as Completed
+* Task Creation Timestamp
 * Persistent Data using localStorage
 * Global State Management with Context API
-* Fully Responsive UI
-* Tailwind CSS Styling
+* Responsive UI with Tailwind CSS
 
 ---
 
@@ -47,8 +47,8 @@ This project demonstrates global state management using Context API along with p
 │   │
 │   ├── App.jsx
 │   ├── main.jsx
-│   ├── index.css
-│   └── App.css
+│   ├── App.css
+│   └── index.css
 │
 ├── package.json
 ├── vite.config.js
@@ -57,7 +57,7 @@ This project demonstrates global state management using Context API along with p
 
 ---
 
-# Concepts Learned
+# Core Concepts Learned
 
 ## React Hooks
 
@@ -71,12 +71,12 @@ This project demonstrates global state management using Context API along with p
 * Provider
 * Custom Hooks
 
-## State Management
+## CRUD Operations
 
-* Add State
-* Update State
-* Delete State
-* Toggle State
+* Create Todo
+* Read Todo
+* Update Todo
+* Delete Todo
 
 ## Local Storage
 
@@ -85,125 +85,119 @@ This project demonstrates global state management using Context API along with p
 
 ## Tailwind CSS
 
-* Responsive UI
-* Conditional Styling
-* Dynamic Classes
+* Dynamic Styling
+* Conditional Classes
+* Responsive Layouts
 
 ---
 
-# Flow of Application
+# Todo Object Structure
+
+```js
+{
+  id: Date.now(),
+  todo: "Learn React Context API",
+  completed: false
+}
+```
+
+---
+
+# Timestamp Logic
+
+Every todo uses:
+
+```js
+id: Date.now()
+```
+
+This timestamp is later converted into readable date/time using:
+
+```js
+new Date(todo.id).toLocaleString()
+```
+
+Example Output:
 
 ```text
-User Action
-    ↓
-Context Function Called
-    ↓
-State Updated
-    ↓
-Todos Re-render
-    ↓
-localStorage Updated
+20/5/2026, 10:45:12 PM
 ```
 
 ---
 
-# How Context API Works Here
+# Application Flow
 
-## Step 1
-
-Context is created:
-
-```js
-createContext()
+```text
+User Types Todo
+       ↓
+TodoForm Updates State
+       ↓
+Add Button Clicked
+       ↓
+addTodo() Executes
+       ↓
+Todos State Updates
+       ↓
+App Re-renders
+       ↓
+Todos Saved To localStorage
+       ↓
+TodoItem Displays Updated Todos
 ```
 
 ---
 
-## Step 2
+# Context API Flow
 
-Provider wraps the application:
-
-```jsx
-<TodoContextProvider value={...}>
+```text
+TodoContext Created
+        ↓
+Provider Wraps App
+        ↓
+Global Data Shared
+        ↓
+Components Access Data Using useTodo()
 ```
 
 ---
 
-## Step 3
-
-Components access global data using:
-
-```js
-useTodo()
-```
-
----
-
-# CRUD Operations
+# Features Breakdown
 
 ## Add Todo
 
-```js
-addTodo()
-```
+Adds newest todo at top using:
 
-Adds new todo at top of list.
+```js
+setTodos((prev) => [{ id: Date.now(), ...todo }, ...prev])
+```
 
 ---
 
-## Update Todo
+## Edit Todo
 
-```js
-updatedTodo()
-```
-
-Updates existing todo text.
-
----
-
-## Delete Todo
-
-```js
-deletedTodo()
-```
-
-Removes todo permanently.
+Allows inline editing of task text.
 
 ---
 
 ## Complete Todo
 
-```js
-completedTodo()
-```
+Checkbox toggles completed status:
 
-Toggles completed status.
+```js
+completed: !prevTodo.completed
+```
 
 ---
 
-# Local Storage Logic
+## Delete Todo
 
-## Load Existing Todos
-
-```js
-useEffect(() => {
-   const todos = JSON.parse(localStorage.getItem("todos"))
-}, [])
-```
-
-Runs once when app loads.
+Removes selected todo permanently.
 
 ---
 
-## Save Todos Automatically
+## Persistent Storage
 
-```js
-useEffect(() => {
-   localStorage.setItem("todos", JSON.stringify(todos))
-}, [todos])
-```
-
-Runs whenever todos change.
+Todos remain saved even after page refresh.
 
 ---
 
@@ -215,7 +209,7 @@ Install dependencies:
 npm install
 ```
 
-Start development server:
+Run development server:
 
 ```bash
 npm run dev
@@ -227,11 +221,11 @@ npm run dev
 
 * Dark Mode
 * Due Dates
-* Todo Categories
+* Todo Priority
 * Drag and Drop
 * Search Todos
 * Authentication
-* Backend Integration
+* Backend Database Integration
 
 ---
 
